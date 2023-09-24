@@ -3,42 +3,43 @@ const input = require('readline-sync');
 // TODO 2: modify your quiz app to ask 5 questions //
 
 // TODO 1.1a: Define candidateName // 
-let candidateName = String(input.question("Please enter your name."));
+let candidateName = String(input.question("Please enter your name. "));
 
 // TODO 1.2a: Define question, correctAnswer, and candidateAnswer //
 let question = input.question("Who was the first American woman in space? ");
-let correctAnswer = "sally ride";
-let candidateAnswer = String(question.toLowerCase);
+let correctAnswer = "Sally Ride";
+let candidateAnswer = String(question);
+
 
 if (candidateAnswer === correctAnswer) {
-  console.log("Correct!");
+  console.log("Correct! ");
 } else {
-  console.log("Incorrect. Better luck next time, yeah?");
+  console.log("Incorrect. Better luck next time, yeah? ");
 }
 
 
 //TODO: Variables for Part 2
 let questionOne = input.question("Who was the first American woman in space? ");
-let questionTwo = input.question("True or false: 5 kilometer == 5000 meters?");
-let questionThree = input.question("(5 + 3)/2 * 10 = ?");
-let questionFour = input.question("Given the array [8, 'Orbit', 'Trajectory', 45], what entry is at index 2?");
-let questionFive = input.question("What is the minimum crew size for the ISS?");
+let questionTwo = input.question("True or false: 5 kilometer == 5000 meters? ");
+let questionThree = input.question("(5 + 3)/2 * 10 = ? ");
+let questionFour = input.question("Given the array [8, 'Orbit', 'Trajectory', 45], what entry is at index 2? ");
+let questionFive = input.question("What is the minimum crew size for the ISS? ");
 
 let questions = [questionOne, questionTwo, questionThree, questionFour, questionFive];
 
-let correctAnswerOne = "sally ride";
+let correctAnswerOne = "Sally Ride";
 let correctAnswerTwo = "true";
-let correctAnswerThree = 40;
-let correctAnswerFour = "trajectory";
-let correctAnswerFive = 3;
+let correctAnswerThree = "40";
+let correctAnswerFour = "Trajectory";
+let correctAnswerFive = "3";
 
 let correctAnswers = [correctAnswerOne, correctAnswerTwo, correctAnswerThree, correctAnswerFour, correctAnswerFive];
 
-let firstAnswer = String(questionOne.toLowerCase);
-let secondAnswer = String(questionTwo.toLowerCase);
-let thirdAnswer = Number(questionThree);
-let fourthAnswer = String(questionFour.toLowerCase);
-let fifthAnswer = Number(questionFive);
+let firstAnswer = String(questionOne);
+let secondAnswer = String(questionTwo);
+let thirdAnswer = String(questionThree);
+let fourthAnswer = String(questionFour);
+let fifthAnswer = String(questionFive);
 
 let candidateAnswers = [firstAnswer, secondAnswer, thirdAnswer, fourthAnswer, fifthAnswer];
 
@@ -50,20 +51,26 @@ function askForName() {
 
 function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
-  console.log(question);
-  console.log(candidateAnswer);
+  for (i = 0; i < questions.length; i++){
+    console.log(questions[i]);
+    for (j = 0; j < candidateAnswers.length; j++) {
+      console.log(candidateAnswers[j]);
+    }
+  }
 }
 
 function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
 
-  if (candidateAnswer === correctAnswer) {
-    console.log("Correct!");
-  } else {
+  for (i = 0; i < questions.length; i++) {
+    if (candidateAnswers[i] === correctAnswers[i]) {
+      console.log("Correct!");
+    } else {
     console.log("Incorrect. Better luck next time, yeah?");
+    }
   }
-    
+
 
   let grade;  //TODO 3.2 use this variable to calculate the candidates score.
 
@@ -74,7 +81,7 @@ function gradeQuiz(candidateAnswers) {
 function runProgram() {
   askForName();
   // TODO 1.1c: Greet candidate using their name //
-   console.log(`What's up ${input}? I hope you're ready for this quiz!`);
+   console.log(`What's up ${candidateName}}? I hope you're ready for this quiz!`);
   askQuestion(question);
   gradeQuiz(this.candidateAnswers);
 };
