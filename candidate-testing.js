@@ -7,7 +7,7 @@ let candidateName = String(input.question("Please enter your name."));
 
 // TODO 1.2a: Define question, correctAnswer, and candidateAnswer //
 let question = input.question("Who was the first American woman in space? ");
-let correctAnswer = "Sally Ride";
+let correctAnswer = "sally ride";
 let candidateAnswer = String(question.toLowerCase);
 
 if (candidateAnswer === correctAnswer) {
@@ -15,12 +15,32 @@ if (candidateAnswer === correctAnswer) {
 } else {
   console.log("Incorrect. Better luck next time, yeah?");
 }
-  
+
 
 //TODO: Variables for Part 2
-let questions;
-let correctAnswers;
-let candidateAnswers;
+let questionOne = input.question("Who was the first American woman in space? ");
+let questionTwo = input.question("True or false: 5 kilometer == 5000 meters?");
+let questionThree = input.question("(5 + 3)/2 * 10 = ?");
+let questionFour = input.question("Given the array [8, 'Orbit', 'Trajectory', 45], what entry is at index 2?");
+let questionFive = input.question("What is the minimum crew size for the ISS?");
+
+let questions = [questionOne, questionTwo, questionThree, questionFour, questionFive];
+
+let correctAnswerOne = "sally ride";
+let correctAnswerTwo = "true";
+let correctAnswerThree = 40;
+let correctAnswerFour = "trajectory";
+let correctAnswerFive = 3;
+
+let correctAnswers = [correctAnswerOne, correctAnswerTwo, correctAnswerThree, correctAnswerFour, correctAnswerFive];
+
+let firstAnswer = String(questionOne.toLowerCase);
+let secondAnswer = String(questionTwo.toLowerCase);
+let thirdAnswer = Number(questionThree);
+let fourthAnswer = String(questionFour.toLowerCase);
+let fifthAnswer = Number(questionFive);
+
+let candidateAnswers = [firstAnswer, secondAnswer, thirdAnswer, fourthAnswer, fifthAnswer];
 
 
 function askForName() {
@@ -57,7 +77,7 @@ function runProgram() {
    console.log(`What's up ${input}? I hope you're ready for this quiz!`);
   askQuestion(question);
   gradeQuiz(this.candidateAnswers);
-}
+};
 
 // ----------- Don't write any code or change any code below this line ---------- //
 module.exports = {
