@@ -73,7 +73,19 @@ function gradeQuiz(candidateAnswers) {
 
 
   let grade;  //TODO 3.2 use this variable to calculate the candidates score.
-
+  let grade = (numberof(candidateAnswers[k] === correctAnswers[k])) / (questions.length) * 100;; 
+for (k = 0; k < questions.length; k++) {
+  if (grade === 0) {
+    console.log('Fail: 0% ' );
+  } else if (grade === 40) {
+      console.log('Fail: 40% ');
+  } else if (grade === 60) {
+        console.log('Fail: 60% ');
+  } else if (grade === 80) {
+          console.log('Pass: 80% ');
+  } else (grade === 100); {
+            console.log('Way to go! Pass: 100% ')
+          }
 
   return grade;
 }
